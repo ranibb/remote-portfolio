@@ -1,2 +1,24 @@
+# _headers file for the REMOTE app
+
+# ======================================================
+# Rule for all assets served from this site
+# ======================================================
 /*
+  # 1. CORS Header (Most Important for MFE)
+  # Allows ONLY our shell application to load these resources.
   Access-Control-Allow-Origin: https://stunning-moonbeam-f11193.netlify.app
+
+  # 2. X-Frame-Options
+  # Prevents other sites from embedding your MFE in an <iframe> (clickjacking protection).
+  # 'DENY' is the most secure setting.
+  X-Frame-Options: DENY
+
+  # 3. X-Content-Type-Options
+  # Prevents the browser from trying to guess the content type of a file,
+  # which can prevent certain types of XSS attacks.
+  X-Content-Type-Options: nosniff
+
+  # 4. Referrer-Policy
+  # Controls how much referrer information is sent with requests.
+  # 'strict-origin-when-cross-origin' is a modern, secure default.
+  Referrer-Policy: strict-origin-when-cross-origin
